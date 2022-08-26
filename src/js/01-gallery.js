@@ -17,5 +17,9 @@ const template = galleryItems.reduce(
 
 gallery.insertAdjacentHTML('beforeend', template);
 
-let galleryLightBox = new SimpleLightbox('.gallery a');
+let galleryLightBox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionPosition: 'bottom',
+  captionDelay: 100,
+});
 galleryLightBox.on('show.simplelightbox');
