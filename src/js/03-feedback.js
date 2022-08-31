@@ -1,10 +1,6 @@
 import throttle from 'lodash.throttle';
 const form = document.querySelector('.feedback-form');
 
-savedData();
-form.addEventListener('submit', throttle(onFormSubmit, 500));
-form.addEventListener('input', throttle(onFormInput, 500));
-
 let formData = {};
 
 function onFormInput(event) {
@@ -34,3 +30,7 @@ function savedData() {
     form.elements.message.value = localStorageDataParse.message;
   }
 }
+
+savedData();
+form.addEventListener('submit', throttle(onFormSubmit, 500));
+form.addEventListener('input', throttle(onFormInput, 500));
