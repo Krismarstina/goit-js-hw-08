@@ -9,9 +9,14 @@ const onTimeUpdate = function (data) {
   localStorage.setItem('videoplayer-current-time', time);
 };
 
-iframePlayer.on('timeupdate', throttle(onTimeUpdate, 1000));
-
 function fromStopTime() {
-  iframePlayer.setCurrentTime(localStorage.getItem('videoplayer-current-time'));
+  const currentTime = localStorage.getItem('videoplayer-current-time');
+  if (currentTime) {
+    iframePlayer.setCurrentTime(
+      localStorage.getItem('videoplayer-current-time')
+    );
+  }
 }
+
 fromStopTime();
+iframePlayer.on('timeupdate', throttle(onTimeUpdate, 1000));
